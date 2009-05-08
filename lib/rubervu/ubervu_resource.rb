@@ -18,9 +18,11 @@ module Rubervu
       @resource   = 'resources'
     end
 
-    # Get information about a specific URL
-    # http://developer.ubervu.com/docs/api_methods/Get_information_about_a_specific_URL
-    # url:String
+    # Get information about a specific URL.
+    #
+    # See: http://developer.ubervu.com/docs/api_methods/Get_information_about_a_specific_URL
+    #
+    # Requires - url:String
     def show url
       function = ''
  
@@ -30,9 +32,11 @@ module Rubervu
       request(@resource, function, params)
     end
 
-    # Add a new resource
-    # http://developer.ubervu.com/docs/api_methods/Add_a_new_resource
-    # url:String
+    # Add a new resource.
+    #
+    # See: http://developer.ubervu.com/docs/api_methods/Add_a_new_resource
+    #
+    # Requires - url:String
     def create url
       function = ''
       
@@ -42,9 +46,11 @@ module Rubervu
       request(@resource, function, nil, 'post', post_data)
     end
 
-    # Add a batch of new resources
-    # http://developer.ubervu.com/docs/api_methods/Add_a_batch_of_new_resources
-    # urls:Array of urls
+    # Add a batch of new resources.
+    #
+    # See: http://developer.ubervu.com/docs/api_methods/Add_a_batch_of_new_resources
+    #
+    # Requires - urls:Array of urls
     def create_batch urls
       function = 'batch/'
 

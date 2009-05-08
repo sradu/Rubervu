@@ -1,5 +1,4 @@
 require 'rubygems'
-Gem::manage_gems
 require 'rake/gempackagetask'
 require "rake/rdoctask"
 
@@ -39,5 +38,5 @@ end
 desc "Upload current documentation to Rubyforge"
 task :upload_docs => [:rdoc] do
         sh "scp -r doc/html/* " +
-           "sradu@rubyforge.org:/var/www/gforge-projects/rubervu/"
+           "sradu@rubyforge.org:/var/www/gforge-projects/rubervu"
 end
