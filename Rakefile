@@ -5,10 +5,10 @@ require "rake/rdoctask"
 spec = Gem::Specification.new do |s|
     s.platform  =   Gem::Platform::RUBY
     s.name      =   "rubervu"
-    s.version   =   "0.1"
+    s.version   =   "0.2"
     s.author    =   "Radu Spineanu"
     s.email     =   "radu @nospam@ rdconcept.ro"
-    s.summary   =   "Gem for accessing the UberVU.com API."
+    s.summary   =   "Gem for accessing the UberVU.com and ContextVoice.com API."
     s.files     =   FileList['lib/*.rb', 'lib/rubervu/*.rb', 'test/*'].to_a
     s.require_path  =   "lib"
     s.test_files = Dir.glob('tests/*.rb')

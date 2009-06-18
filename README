@@ -1,8 +1,8 @@
-= Rubervu: Gem for accessing the UberVU.com API.
+= Rubervu: Gem for accessing the UberVU.com and ContextVoice.com API.
 
 See http://rubervu.rubyforge.org/ for more information.
 
-Version 0.1.
+Version 0.2.
 
 == Basic Usage
 

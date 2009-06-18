@@ -18,9 +18,9 @@ module Rubervu
       @resource   = 'resources'
     end
 
-    # Get information about a specific URL.
+    # Get meta-data for URL
     #
-    # See: http://developer.ubervu.com/docs/api_methods/Get_information_about_a_specific_URL
+    # See: http://developer.contextvoice.com/docs/api_methods_11/Get_metadata_for_URL
     #
     # Requires - url:String
     def show url

@@ -13,7 +13,7 @@ module Rubervu
   #
   class Ubervu
     # Initializes the Ubervu Class.
-    def initialize(api_key, api_url = 'http://api.ubervu.com')
+    def initialize(api_key, api_url = 'http://api.contextvoice.com')
       @api_key    = api_key
       @api_url    = api_url
     end
@@ -21,6 +21,11 @@ module Rubervu
     # Maps UbervuResource. See UbervuResource for more information about methods.
     def resources
       UbervuResource.new(@api_key, @api_url)
+    end
+
+    # Maps UbervuReaction. See UbervuReaction for more information about methods
+    def reactions
+      UbervuReaction.new(@api_key, @api_url)
     end
 
     # Processes the request. Creates the API call and returns a JSON parsed result.
