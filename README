@@ -17,8 +17,11 @@ Version 0.2.
    # Get information about a specific URL
    result = ubervu.resources.show(url)
 
-   # Add a new resource
+   # Get Metadata
    result = ubervu.resources.create(url)
+
+   # Get Reactions
+   result = ubervu.reactions.show(url, :perpage => 5, :page => 2)
 
    # Add a batch of new resources
    result = ubervu.resources.create_batch([ url1, url2, url3 ])
