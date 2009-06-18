@@ -14,10 +14,10 @@ Version 0.2.
 
    ubervu = Rubervu::Ubervu.new('API_KEY')
 
-   # Get information about a specific URL
+   # Get Metadata
    result = ubervu.resources.show(url)
 
-   # Get Metadata
+   # Add an URL
    result = ubervu.resources.create(url)
 
    # Get Reactions
