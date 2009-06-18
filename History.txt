@@ -1,3 +1,7 @@
+== 0.2 18/06/2009
+
+  * support for the uberVU/ContextVoice 1.1 API
+
 == 0.1 08/05/2009
 
   * First release.
