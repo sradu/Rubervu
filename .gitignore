@@ -1,4 +1,5 @@
 pkg/*
 pkg/**/*
-doc/*
-doc/**/*
+rdoc/*
+rdoc/**/*
+*.gem

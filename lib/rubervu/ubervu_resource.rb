@@ -59,5 +59,24 @@ module Rubervu
 
       request(@resource, function, nil, 'post', post_data)
     end
+
+    # Search through resources.
+    #
+    # See: http://developer.contextvoice.com/docs/api_methods_version_12/Search_for_a_keyword_or_a_URL
+    #
+    # Requires - query:String
+    def search query, sort_by=nil, relevance=nil, offset=nil, count=nil, language=nil
+      function = 'search/'
+
+      params = {}
+      params[:q]         = query
+      params[:s]         = sort_by   if sort_by
+      params[:relevance] = relevance if relevance
+      params[:offset]    = offset    if offset
+      params[:count]     = count     if count
+      params[:language]  = language  if language
+
+      request(@resource, function, params)
+    end
   end
 end

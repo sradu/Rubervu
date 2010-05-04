@@ -1,42 +1,54 @@
 require 'rubygems'
-require 'rake/gempackagetask'
-require "rake/rdoctask"
+require 'rake'
 
-spec = Gem::Specification.new do |s|
-    s.platform  =   Gem::Platform::RUBY
-    s.name      =   "rubervu"
-    s.version   =   "0.2"
-    s.author    =   "Radu Spineanu"
-    s.email     =   "radu @nospam@ rdconcept.ro"
-    s.summary   =   "Gem for accessing the UberVU.com and ContextVoice.com API."
-    s.files     =   FileList['lib/*.rb', 'lib/rubervu/*.rb', 'test/*'].to_a
-    s.require_path  =   "lib"
-    s.test_files = Dir.glob('tests/*.rb')
-    s.has_rdoc  =   true
-    s.extra_rdoc_files  =   ["README"]
 
-    s.add_dependency("json")
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "rubervu"
+    gem.summary = %Q{Library for accessing the UberVU.com and ContextVoice.com API.}
+    gem.description = %Q{Library for accessing the UberVU.com and ContextVoice.com API.}
+    gem.email = "radu@2performant.com"
+    gem.homepage = "http://github.com/sradu/Rubervu"
+    gem.authors = ["Radu Spineanu"]
+    gem.add_dependency "json"
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-Rake::GemPackageTask.new(spec) do |pkg|
-    pkg.need_tar = true
+require 'rake/testtask'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/test_*.rb'
+  test.verbose = true
 end
 
-task :default => "pkg/#{spec.name}-#{spec.version}.gem" do
-    puts "generated latest version"
+begin
+  require 'rcov/rcovtask'
+  Rcov::RcovTask.new do |test|
+    test.libs << 'test'
+    test.pattern = 'test/**/test_*.rb'
+    test.verbose = true
+  end
+rescue LoadError
+  task :rcov do
+    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
+  end
 end
 
+task :test => :check_dependencies
 
+task :default => :test
+
+require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
-        rdoc.main     = "README"
-        rdoc.rdoc_dir = "doc/html"
-        rdoc.title    = "Rubervu Documentation"
-        rdoc.rdoc_files.include( "README",  "History.txt",
-                                 "lib")
+  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title = "rubervu #{version}"
+  rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-desc "Upload current documentation to Rubyforge"
-task :upload_docs => [:rdoc] do
-        sh "scp -r doc/html/* " +
-           "sradu@rubyforge.org:/var/www/gforge-projects/rubervu"
-end

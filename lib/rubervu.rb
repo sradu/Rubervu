@@ -12,7 +12,7 @@ require 'json/ext'
 # Rubervu module contains a Rubervu connection class and different Rubervu Classes
 module Rubervu
   FORMAT      = "json"
-  API_VER     = "1.1"
+  API_VER     = "1.2"
 end
 
 require 'rubervu/ubervu'

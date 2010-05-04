@@ -1,3 +1,9 @@
+== 0.2.1 04/05/2009
+
+  * support for the uberVU/ContextVoice 1.2 API
+  * search method
+  * moved to jeweler/gemcutter
+
 == 0.2 18/06/2009
 
   * support for the uberVU/ContextVoice 1.1 API
